@@ -3,11 +3,11 @@ name: Main Branch CI Workflow
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
-    name: Build and Test
+    name: CI for Go
     runs-on: ubuntu-latest
     
     steps:
