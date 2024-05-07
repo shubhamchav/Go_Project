@@ -1,9 +1,9 @@
-name: To Do Project
+name: Main Branch CI Workflow
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -26,10 +26,23 @@ jobs:
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-go-
-      - name: Build
+
+      - name: Compile
         run: go build -v .
 
-      - name: Test
+      #- name: Secret Scanning
+        # Integrate with your secret scanning tool
+        # For example, if using truffleHog
+       # run: trufflehog .
+
+      - name: Unit Test
         run: go test -v ./...
 
-      # You can add more steps for additional checks, such as linting, code coverage, etc.
+      - name: Code Coverage
+        run: go test -coverprofile=coverage.out ./... && go tool cover -func=coverage.out && go tool cover -html=coverage.out -o coverage.html
+
+     # - name: Static Code Analysis with Quality Gate
+      #  run: sonar-scanner -Dsonar.projectKey=<your_project_key> -Dsonar.organization=<your_organization> -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=<your_sonar_token>
+
+      - name: Build Artifact
+        run: echo "Build artifact step"
