@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_shubhamchav_Go_Todo_Project_1748872713653-pr-trigger-input-set
+  identifier: Build_shubhamchav_Go_Todo_Project_1748872713653prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: demo
+  pipeline:
+    identifier: Build_shubhamchav_Go_Todo_Project_1748872713653
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
