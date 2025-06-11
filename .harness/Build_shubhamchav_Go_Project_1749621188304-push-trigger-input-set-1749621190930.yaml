@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_shubhamchav_Go_Project_1749621188304-push-trigger-input-set
+  identifier: Build_shubhamchav_Go_Project_1749621188304pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: demo1
+  pipeline:
+    identifier: Build_shubhamchav_Go_Project_1749621188304
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
